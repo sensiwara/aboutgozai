@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #4905b6, #0d0053, #0348af);
+    background-size: 400% 400%;
+    color: white;
+    font-family: 'MyCustomFont', Arial, sans-serif;
+    animation: gradient 10s ease infinite;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+.round-button,
+.round-buttonup {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.round-button {
+    bottom: 20px;
+    left: 20px;
+}
+
+.round-buttonup {
+    top: 20px;
+    left: 20px;
+}
+
+.card {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 342;
+}
+
+.hello-message {
+    position: fixed; /* Абсолютное позиционирование для позиционирования относительно видимой области экрана */
+    top: 50%; /* Положение по вертикали в середине экрана */
+    left: 50%; /* Положение по горизонтали в середине экрана */
+    transform: translate(-50%, -50%); /* Центрирование по горизонтали и вертикали */
+    font-size: 100px;
+    color: white;
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 2s ease; /* Плавный переход для opacity */
+}
+
+
+.headersite {
+    text-align: right; /* Выравнивание текста по центру */
+    padding-right: 100px; /* Отступ сверху */
+    font-size: 60px;
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 2s ease; /* Плавный переход для opacity */
+}
+
+
+.card.card-1 {
+    background: linear-gradient(-45deg, #682cc7, #8f82dd, #b586f3);
+    background-size: 400% 400%;
+    animation: gradient 10s linear infinite;
+}
+
+.card.card-2 {
+    background: linear-gradient(-45deg, #027981, #00ffff, #ff00ff);
+    background-size: 400% 400%;
+    animation: gradient 10s linear infinite;
+}
+
+.card.card-3 {
+    background: linear-gradient(-45deg, #2f00ff, #2630bd, #5900ff);
+    background-size: 400% 400%;
+    animation: gradient 10s linear infinite;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/myfont.ttf') format('truetype');
+}
+
