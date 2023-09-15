@@ -1,35 +1,38 @@
-const cards = document.querySelectorAll('.card');
+$(document).ready(function() {
+    var delay = false;
 
+    $(document).on('mousewheel DOMMouseScroll', function(event) {
+        event.preventDefault();
+        if (delay) return;
 
-function showCard(cardNumber) {
-  cards.forEach((card, index) => {
-      if (index + 1 === cardNumber) {
-          card.style.display = "flex";
-          if (cardNumber === 1) {
-              const helloMessage = card.querySelector('.hello-message');
-              helloMessage.style.display = "block";
-              setTimeout(() => {
-                  helloMessage.style.opacity = 1;
-              }, 100); 
-              setTimeout(() => {
-                helloMessage.style.opacity = 0;
-              }, 1500); 
-              const headermessage = card.querySelector('.headersite');
-              headermessage.style.display = "block";
-              setTimeout(() => {
-                headermessage.style.opacity = 1;
-            }, 2000); 
+        delay = true;
+        setTimeout(function() {
+            delay = false
+        }, 1)
+
+        var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+
+        var a = document.getElementsByClassName('section');
+
+        if (wd < 0) {
+            for (var i = 0; i < a.length; i++) {
+                var t = a[i].getClientRects()[0].top;
+                if (t >= 40) break;
             }
-      } else {
-          card.style.display = "none";
-      }
-  });
-}
+        } else {
+            for (var i = a.length - 1; i >= 0; i--) {
+                var t = a[i].getClientRects()[0].top;
+                if (t < -20) break;
+            }
+        }
 
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  showCard(1);
+        if (i >= 0 && i < a.length) {
+            $('html,body').animate({
+                scrollTop: a[i].offsetTop
+            });
+        }
+    });
 });
+
+
 
