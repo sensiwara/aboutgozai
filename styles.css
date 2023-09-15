@@ -1,105 +1,66 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(-45deg, #4905b6, #0d0053, #0348af);
-    background-size: 400% 400%;
-    color: white;
+    margin: 0;
+    padding: 0;
+    height: 300vh; /* Устанавливаем высоту страницы в 3 раза выше экрана */
+    background-size: 600% 100%; /* Двойная ширина для градиента */
+    /* background-image: linear-gradient(to right, #260eff, #228de6, #871ffd, #403ed8, #43dee9, #072b91); */
+    background-image: linear-gradient(to right, #4d09a5, #150791);
+    animation: gradient 7s ease infinite;
     font-family: 'MyCustomFont', Arial, sans-serif;
-    animation: gradient 10s ease infinite;
+    cursor: url(assets/cursor.png), default;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.section {
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: transparent; /* Убираем фон секций */
+}
+
+.centered-image {
+    display: block;
+    margin: 20px auto; /* Отступы сверху и снизу 20px, горизонтально по центру */
+    max-width: 100%; /* Ограничиваем максимальную ширину картинки */
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 20px; /* Отступ снизу */
+    left: 50%; /* Положение по горизонтали по центру */
+    transform: translateX(-50%); /* Центрирование по горизонтали */
 }
 
 
-.round-button,
-.round-buttonup {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 999;
+
+
+
+
+#section1 {
+    text-align: center; /* Выравнивание текста по центру */
 }
 
-.round-button {
-    bottom: 20px;
-    left: 20px;
-}
-
-.round-buttonup {
-    top: 20px;
-    left: 20px;
-}
-
-.card {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    z-index: 342;
-}
-
-.hello-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 100px;
-    color: white;
-    opacity: 0;
-    transition: opacity 2s ease;
+#section1 p {
+    margin: 0; /* Убираем внешние отступы у абзацев */
+    font-size: 24px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень текста */
+    max-width: 600px; /* Максимальная ширина текста */
+    padding: 20px; /* Внутренние отступы */
+    background: rgba(0, 0, 0, 0.5); /* Фон текста с прозрачностью */
+    border-radius: 10px; /* Закругление углов */
 }
 
 
-.headersite {
-    text-align: right; 
-    padding-right: 100px; 
-    font-size: 60px;
-    opacity: 0; 
-    transition: opacity 2s ease; 
-}
-
-
-.card.card-1 {
-    background: linear-gradient(-45deg, #682cc7, #8f82dd, #b586f3);
-    background-size: 400% 400%;
-    animation: gradient 10s linear infinite;
-}
-
-.card.card-2 {
-    background: linear-gradient(-45deg, #027981, #00ffff, #ff00ff);
-    background-size: 400% 400%;
-    text-align: center;
-    animation: gradient 10s linear infinite;
-}
-
-.card.card-3 {
-    background: linear-gradient(-45deg, #2f00ff, #2630bd, #5900ff);
-    background-size: 400% 400%;
-    text-align: center;
-    animation: gradient 10s linear infinite;
-}
 
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
     50% {
         background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
 }
 
@@ -107,4 +68,5 @@ body {
     font-family: 'MyCustomFont';
     src: url('fonts/myfont.ttf') format('truetype');
 }
+
 
